@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'simplecov'
+require 'webmock/rspec'
 
 SimpleCov.start do
   coverage_dir File.join(File.dirname(__FILE__), '..', 'public', 'coverage')
@@ -14,12 +15,13 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
+WebMock.disable_net_connect!(allow_localhost: true)
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include FactoryGirl::Syntax::Methods
-  config.include Features::SessionHelpers, type: :feature
-  config.include Features::DataHelper, type: :feature
-  config.include Features::PoltergeistHelper, type: :feature
-
+  # config.include Features::SessionHelpers, type: :feature
+  # config.include Features::DataHelper, type: :feature
+  # config.include Features::PoltergeistHelper, type: :feature
   config.infer_spec_type_from_file_location!
 end

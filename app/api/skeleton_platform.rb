@@ -4,6 +4,6 @@ module SkeletonPlatform
     format :json
     formatter :json, Grape::Formatter::ActiveModelSerializers
 
-    mount SkeletonPlatform::Resources::Placeholder
+    mount SkeletonPlatform::Resources::Analytics
   end
 end

@@ -3,13 +3,16 @@
 *.rbc
 **.orig
 **/.DS_Store
+.DS_Store
 .env
 .env.*
 
 capybara-*.html
 pickle-email-*.html
+puma.id
+puma.state
 rerun.txt
-.DS_Store
+
 
 config/dotenv/.env.*
 config/initializers/secret_token.rb
@@ -42,4 +45,3 @@ vendor/bundle
 ## Node files
 node_modules
 npm-debug.log
-

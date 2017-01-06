@@ -26,8 +26,6 @@ AllCops:
     - 'app/models/prioritization_model.rb'
     - 'app/models/scheduled_cache_warm.rb'
     - 'lib/rails_admin/ops_dashboard.rb'
-  Rails:
-    Enabled: true
   DisplayCopNames: true
 
 IndentationConsistency:

@@ -1,0 +1,35 @@
+{
+	"id": "b808f03c-1a3e-9589-4d32-70136d62312f",
+	"name": "Skeleton-Rails-Project",
+	"description": "",
+	"order": [
+		"71b32780-8fa2-02b2-95b6-e7d1b461832b"
+	],
+	"folders": [],
+	"timestamp": 1483735507190,
+	"owner": "755692",
+	"public": false,
+	"requests": [
+		{
+			"id": "71b32780-8fa2-02b2-95b6-e7d1b461832b",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/api/placeholder",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b808f03c-1a3e-9589-4d32-70136d62312f",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Skeleton-Rails-Project",
+			"description": "Test placeholder endpoint",
+			"descriptionFormat": "html",
+			"time": 1483735507189,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n  \"email\": \"garret.the.great@gmail.com\"\n}"
+		}
+	]
+}

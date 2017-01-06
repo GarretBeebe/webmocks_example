@@ -8,20 +8,19 @@ default: &default
 development:
   <<: *default
   database: <%= ENV['DEVELOPMENT_DATABASE'] %>
-  username: <%= ENV['DEVELOPMENT_USERNAME'] %>
-  password: <%= ENV['DEVELOPMENT_PASSWORD'] %>
+  username: <%= ENV['DEVELOPMENT_DB_USERNAME'] %>
+  password: <%= ENV['DEVELOPMENT_DB_PASSWORD'] %>
   host: <%= ENV['DEVELOPMENT_HOST'] %>
 
 test:
   <<: *default
   database: <%= ENV['TEST_DATABASE'] %>
-  username: <%= ENV['TEST_USERNAME'] %>
-  password: <%= ENV['TEST_PASSWORD'] %>
+  username: <%= ENV['TEST_DB_USERNAME'] %>
+  password: <%= ENV['TEST_DB_PASSWORD'] %>
   host: <%= ENV['TEST_HOST'] %>
 
 production:
   <<: *default
   database: <%= ENV['PRODUCTION_DATABASE'] %>
-  username: <%= ENV['PRODUCTION_USERNAME'] %>
-  password: <%= ENV['PRODUCTION_PASSWORD'] %>
-  host: <%= ENV['PRODUCTION_HOST'] %>
+  username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
+  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>

@@ -1,50 +1,91 @@
-## Development Setup
+== README
 
-### On Your Mac or PC
-  Install ruby version 2.2.1p85 from https://www.ruby-lang.org/en/downloads/. Follow the instructions for your OS.
-  Install virtualbox version 4.3.34 from https://www.virtualbox.org/wiki/Downloads. Follow the instructions for your OS.
-  Install postgresql from http://www.postgresql.org/. Follow the instructions for your OS.
-  Run:
+To setup:
+
+* On your host, install ruby 2.3.1
+
+* Run:
+
     gem install librarian-chef
-  Visit https://www.vagrantup.com/ and install vagrant. Follow the instructions for your OS.
-  Run:
+
+* Install PostgresDB.
+
+* Install Vagrant.
+
+* Install VirtualBox.
+
+* Run:
+
     vagrant plugin install vagrant-vbguest
-  Run:
+
+* Clone the Skeleton Rails Project repo to your machine.
+
+* Enter your project directory.
+
+* Add your public key to the vagrant folder.
+
+* Create an append_authorized_keys file within the vagrant folder and add your public key to that file.
+
+* Run:
+
     librarian-chef install
-  You may need to run the following if you had tried unsuccessfully to run librarian-chef previously:
-    rm -rf RAILS_ROOT/tmp/librarian
-  Copy the .pub of your ssh key into the RAILS_ROOT/vagrant directory
-  Add the .pub of your ssh key to the end of RAILS_ROOT/vagrant/append_authorized_keys
-  Create a .env file within RAILS_ROOT/config/dotenv/
-  Add the following to .env file:
 
-    DEVELOPMENT_DART_HOST=10.0.2.2
-    DEVELOPMENT_DART_DATABASE=YOUR_DEV_DATABASE_NAME
-    DEVELOPMENT_DART_USERNAME=YOUR_DB_USERNAME
-    DEVELOPMENT_DART_PASSWORD=YOUR_DB_PASSWORD
+* Once chef is complete, run:
 
-  Create a .env.test file within RAILS_ROOT/config/dotenv/
-  Add the following to .env.test. file:
-
-    TEST_DART_HOST=10.0.2.2
-    TEST_DART_DATABASE=YOUR_TEST_DATABASE_NAME
-    TEST_DART_USERNAME=YOUR_DB_USERNAME
-    TEST_DART_PASSWORD=YOUR_DB_PASSWORD
-
-  Run:
     vagrant up
 
-  Once your VM is up, run:
+* To SSH into your VM, run:
+
     vagrant ssh
 
-### On the VM
-  Run:
+* Once inside your vm, run:
+
     cd /srv/skeleton-rails-project
-  Run:
+
+* Run:
+
     bundle
-  Run:
-    RAILS_ENV=development bundle exec rake db:create db:migrate db:seed
-  To start the web server, run:
+
+* Create config/dotenv/.env by adding your db credentials.
+
+    DEVELOPMENT_HOST=10.0.2.2
+    DEVELOPMENT_DATABASE=skeleton_rails_development
+    DEVELOPMENT_DB_USERNAME=YOUR_DB_USER
+    DEVELOPMENT_DB_PASSWORD=YOUR_DB_USER_PASSWORD
+    DEVELOPMENT_SECRET_TOKEN=GET_SECRET_TOKEN
+
+* Create config/dotenv/.env.test by adding the following:
+
+    TEST_HOST=10.0.2.2
+    TEST_DATABASE=skeleton_rails_test
+    TEST_DB_USERNAME=YOUR_DB_USER
+    TEST_DB_PASSWORD=YOUR_DB_USER_PASSWORD
+    TEST_SECRET_TOKEN=GET_SECRET_TOKEN
+
+* Run:
+
+    rake db:create db:migrate db:seed
+
+* To start server run:
+
+    rails s -p 8080
+    or for https
     bundle exec puma -C config/puma.rb
 
-  The server log will be in log/<rails_env>.log
+Notes:
+
+* This project follows a file structure we developed on previous projects. If you do not need a particular folder for your project, feel free to trim back the structure.
+
+* This project comes with prepopulated with rubocop and reek rules.
+
+* Capybara is used for feature testing. This project comes with a preconfigured capybara helper found in spec/support.
+
+* The Poltergeist driver is included for testing. The capybara helper and the spec helper are configured to use it. These files can be found in the spec and spec/support folders respectively.
+
+* For testing, a database cleaner helper is included in spec/support. The developer can modify the DB cleaning strategy for testing from this file.
+
+* A postman collection for api testing is included in the root of the project.
+
+* Before any development begins, find all references to "skeleton-rails-project" and "skeleton_rails". Replace with new project name following preferred naming conventions for file type and location.
+
+* Out of the box, rake should be green.
