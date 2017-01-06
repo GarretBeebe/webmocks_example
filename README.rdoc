@@ -1,0 +1,50 @@
+## Development Setup
+
+### On Your Mac or PC
+  Install ruby version 2.2.1p85 from https://www.ruby-lang.org/en/downloads/. Follow the instructions for your OS.
+  Install virtualbox version 4.3.34 from https://www.virtualbox.org/wiki/Downloads. Follow the instructions for your OS.
+  Install postgresql from http://www.postgresql.org/. Follow the instructions for your OS.
+  Run:
+    gem install librarian-chef
+  Visit https://www.vagrantup.com/ and install vagrant. Follow the instructions for your OS.
+  Run:
+    vagrant plugin install vagrant-vbguest
+  Run:
+    librarian-chef install
+  You may need to run the following if you had tried unsuccessfully to run librarian-chef previously:
+    rm -rf RAILS_ROOT/tmp/librarian
+  Copy the .pub of your ssh key into the RAILS_ROOT/vagrant directory
+  Add the .pub of your ssh key to the end of RAILS_ROOT/vagrant/append_authorized_keys
+  Create a .env file within RAILS_ROOT/config/dotenv/
+  Add the following to .env file:
+
+    DEVELOPMENT_DART_HOST=10.0.2.2
+    DEVELOPMENT_DART_DATABASE=YOUR_DEV_DATABASE_NAME
+    DEVELOPMENT_DART_USERNAME=YOUR_DB_USERNAME
+    DEVELOPMENT_DART_PASSWORD=YOUR_DB_PASSWORD
+
+  Create a .env.test file within RAILS_ROOT/config/dotenv/
+  Add the following to .env.test. file:
+
+    TEST_DART_HOST=10.0.2.2
+    TEST_DART_DATABASE=YOUR_TEST_DATABASE_NAME
+    TEST_DART_USERNAME=YOUR_DB_USERNAME
+    TEST_DART_PASSWORD=YOUR_DB_PASSWORD
+
+  Run:
+    vagrant up
+
+  Once your VM is up, run:
+    vagrant ssh
+
+### On the VM
+  Run:
+    cd /srv/skeleton-rails-project
+  Run:
+    bundle
+  Run:
+    RAILS_ENV=development bundle exec rake db:create db:migrate db:seed
+  To start the web server, run:
+    bundle exec puma -C config/puma.rb
+
+  The server log will be in log/<rails_env>.log
