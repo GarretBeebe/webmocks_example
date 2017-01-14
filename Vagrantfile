@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: guest, host: host
   end
 
-  config.vm.synced_folder ".", "/srv/skeleton-rails-project"
+  config.vm.synced_folder ".", "/srv/webmocks-example-project"
 
   config.vm.provider "virtualbox" do |vb|
     # Don't boot with headless mode

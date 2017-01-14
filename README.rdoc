@@ -49,7 +49,7 @@ To setup:
 * Create config/dotenv/.env by adding your db credentials.
 
     DEVELOPMENT_HOST=10.0.2.2
-    DEVELOPMENT_DATABASE=skeleton_rails_development
+    DEVELOPMENT_DATABASE=webmocks_example_development
     DEVELOPMENT_DB_USERNAME=YOUR_DB_USER
     DEVELOPMENT_DB_PASSWORD=YOUR_DB_USER_PASSWORD
     DEVELOPMENT_SECRET_TOKEN=GET_SECRET_TOKEN
@@ -57,7 +57,7 @@ To setup:
 * Create config/dotenv/.env.test by adding the following:
 
     TEST_HOST=10.0.2.2
-    TEST_DATABASE=skeleton_rails_test
+    TEST_DATABASE=webmocks_example_test
     TEST_DB_USERNAME=YOUR_DB_USER
     TEST_DB_PASSWORD=YOUR_DB_USER_PASSWORD
     TEST_SECRET_TOKEN=GET_SECRET_TOKEN
