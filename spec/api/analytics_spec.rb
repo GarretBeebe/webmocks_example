@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe SkeletonPlatform::API do
-  before(:each) do
-    Rails.cache.clear
-  end
+  # before(:each) do
+  #   Rails.cache.clear
+  # end
 
   describe 'POST /api/analytics' do
     it 'creates a analytics object from a single hash' do
