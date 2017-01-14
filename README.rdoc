@@ -44,6 +44,8 @@ To setup:
 
 * Run:
 
+    sudo gem install bundler
+
     bundle
 
 * Create config/dotenv/.env by adding your db credentials.
@@ -83,8 +85,6 @@ Notes:
 * The Poltergeist driver is included for testing. The capybara helper and the spec helper are configured to use it. These files can be found in the spec and spec/support folders respectively.
 
 * For testing, a database cleaner helper is included in spec/support. The developer can modify the DB cleaning strategy for testing from this file.
-
-* A postman collection for api testing is included in the root of the project.
 
 * Before any development begins, find all references to "skeleton-rails-project" and "skeleton_rails". Replace with new project name following preferred naming conventions for file type and location.
 
