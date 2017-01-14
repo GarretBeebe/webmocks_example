@@ -36,7 +36,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.add_recipe 'git'
     chef.add_recipe 'ruby_build'
-    chef.add_recipe 'memcached'
   end
 
   config.vm.provision :shell, :path => "vagrant/install-ruby.sh"
