@@ -40,7 +40,7 @@ To setup:
 
 * Once inside your vm, run:
 
-    cd /srv/skeleton-rails-project
+    cd /srv/webmocks-example-project
 
 * Run:
 
@@ -85,7 +85,5 @@ Notes:
 * The Poltergeist driver is included for testing. The capybara helper and the spec helper are configured to use it. These files can be found in the spec and spec/support folders respectively.
 
 * For testing, a database cleaner helper is included in spec/support. The developer can modify the DB cleaning strategy for testing from this file.
-
-* Before any development begins, find all references to "skeleton-rails-project" and "skeleton_rails". Replace with new project name following preferred naming conventions for file type and location.
 
 * Out of the box, rake should be green.
